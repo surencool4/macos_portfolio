@@ -16,6 +16,27 @@ const navLinks = [
     },
 ];
 
+const navDropdownLinks = [
+    {
+        id: 1,
+        name: "About Surendra",
+        icon: "/macbook.png",
+        type: "resume",
+    },
+    {
+        id: 3,
+        name: "Contact",
+        icon: "/icons/info.svg",
+        type: "contact",
+    },
+    {
+        id: 4,
+        name: "Skills",
+        icon: "/icons/search.svg",
+        type: "terminal",
+    },
+];
+
 const navIcons = [
     {
         id: 1,
@@ -209,6 +230,7 @@ const gallery = [
 ];
 
 export {
+    navDropdownLinks,
     navLinks,
     navIcons,
     dockApps,
