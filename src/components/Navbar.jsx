@@ -6,8 +6,8 @@ const Navbar = () => {
     return (
         <nav>
             <div>
-                <img src="images/logo.svg" alt="logo" />
-                <p className="font-bold">Surendra's Portfolio</p>
+                <img src="images/logo.svg" alt="logo" className="w-4"/>
+                <p className="font-bold text-white">Surendra's Portfolio</p>
                 <ul>
                     {navLinks.map(({id,name, type}) => (
                         <li key={id} onClick={() => openWindow(type)}>
@@ -20,7 +20,7 @@ const Navbar = () => {
                 <ul>
                     {navIcons.map(({id,img}) => (
                         <li key={id}>
-                            <img src={img} className="icon-hover" alt={`${id}`} />
+                            <img src={img} className="icon-hover w-4" alt={`${id}`} />
                         </li>
                     ))}
                 </ul>

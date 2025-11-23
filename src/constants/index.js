@@ -106,24 +106,28 @@ const techStack = [
     },
     {
         category: "Mobile",
-        items: ["React Native", "Expo"],
+        items: ["React Native", "Flutter"],
     },
     {
         category: "Styling",
-        items: ["Tailwind CSS", "Sass", "CSS"],
+        items: ["Tailwind CSS", "Sass", "CSS", "Bootstrap"],
     },
     {
         category: "Backend",
-        items: ["Node.js", "Express", "NestJS", "Hono"],
+        items: ["Node.js", "C# (.NET)", "NestJS", "PHP", "Laravel" ],
     },
     {
         category: "Database",
-        items: ["MongoDB", "PostgreSQL"],
+        items: ["MySQL", "MongoDB", "PostgreSQL"],
     },
     {
         category: "Dev Tools",
         items: ["Git", "GitHub", "Docker"],
     },
+    {
+        category: "Hosting/Server",
+        items: ["Kubernetes", "Openstack", "WHMCS"],
+    }
 ];
 
 const socials = [
@@ -132,28 +136,28 @@ const socials = [
         text: "Github",
         icon: "/icons/github.svg",
         bg: "#f4656b",
-        link: "https://github.com/JavaScript-Mastery-Pro",
+        link: "https://github.com/surencool4",
     },
     {
         id: 2,
         text: "Platform",
         icon: "/icons/atom.svg",
         bg: "#4bcb63",
-        link: "https://jsmastery.com/",
+        link: "https://zero.app/",
     },
     {
         id: 3,
-        text: "Twitter/X",
-        icon: "/icons/twitter.svg",
+        text: "Facebook",
+        icon: "/icons/facebook.svg",
         bg: "#ff866b",
-        link: "https://x.com/jsmasterypro",
+        link: "https://facebook.com/dev.srk",
     },
     {
         id: 4,
         text: "LinkedIn",
         icon: "/icons/linkedin.svg",
         bg: "#05b6f6",
-        link: "https://www.linkedin.com/company/javascriptmastery/posts/?feedView=all",
+        link: "https://www.linkedin.com/in/surendra-budhathoki-a1157888/",
     },
 ];
 
@@ -229,7 +233,7 @@ const WORK_LOCATION = {
             icon: "/images/folder.png",
             kind: "folder",
             position: "top-10 left-5", // icon position inside Finder
-            windowPosition: "top-[5vh] left-5", // optional: Finder window position
+            windowPosition: "top-[5vh] right-5", // optional: Finder window position
             children: [
                 {
                     id: 1,
@@ -282,7 +286,7 @@ const WORK_LOCATION = {
             icon: "/images/folder.png",
             kind: "folder",
             position: "top-52 right-80",
-            windowPosition: "top-[20vh] left-7",
+            windowPosition: "top-[20vh] right-7",
             children: [
                 {
                     id: 1,
@@ -335,7 +339,7 @@ const WORK_LOCATION = {
             icon: "/images/folder.png",
             kind: "folder",
             position: "top-10 left-80",
-            windowPosition: "top-[33vh] left-7",
+            windowPosition: "top-[33vh] right-7",
             children: [
                 {
                     id: 1,
