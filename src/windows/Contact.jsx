@@ -1,6 +1,6 @@
 import {WindowControls} from "#components";
 import WindowWrapper from "#hoc//WindowWrapper.jsx";
-import {socials} from "#constants/";
+import {blogPosts, socials} from "#constants/";
 
 
 const Contact = () => {
@@ -21,8 +21,9 @@ const Contact = () => {
                 <p>Got an idea? A bug to squash? Or just wanna talk tech? I'm in.</p>
                 <p>surencool4@gmail.com</p>
                 <ul>
-                    {socials.map(({id, bg, link, icon, text}) => (
-                        <li key={id} style={{ bacgroundColor: bg }}>
+                    {socials.map(({id, text, icon, bg, link}) => (
+                        <li key={id} style={{ backgroundColor: bg }}>
+
                             <a href={link} target="_blank" rel="noopener noreferrer" title={text}>
                                 <img src={icon} alt={text} className="size-5" />
                                 <p>{text}</p>
