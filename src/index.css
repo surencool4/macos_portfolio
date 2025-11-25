@@ -31,6 +31,17 @@ body {
     @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
 }
 
+.window-base {
+    @apply absolute bg-white shadow-lg rounded-lg overflow-hidden transition-all;
+    width: 600px;
+    height: 400px;
+}
+
+/* MAXIMIZED */
+.window-maximized {
+    @apply top-0 left-0 w-screen h-screen rounded-none ;
+}
+
 @layer base {
     main {
         @apply w-dvw h-dvh overflow-hidden;
@@ -110,7 +121,7 @@ body {
         }
 
         .maximize {
-            @apply size-3.5 rounded-full bg-[#2acb42];
+            @apply size-3.5 rounded-full bg-[#2acb42] cursor-pointer;
         }
     }
 
