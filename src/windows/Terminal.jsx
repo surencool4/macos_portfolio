@@ -29,7 +29,7 @@ const Terminal = () => {
                             <h3>{category}</h3>
                             <ul>
                                 {items.map((item,i) => (
-                                    <li key={i}>
+                                    <li key={i} className="dark:text-white">
                                         {item}
                                         {i < items.length - 1 ? "," : ""}
                                     </li>
@@ -43,7 +43,7 @@ const Terminal = () => {
                     <p>
                         <Check size={20} /> 5 0f 5 loaded successfully (100%)
                     </p>
-                    <p className="text-black">
+                    <p className="text-black dark:text-white">
                         <Flag size={15} fill="black" />
                         Render time: 6ms
                     </p>

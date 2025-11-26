@@ -41,18 +41,22 @@ const navIcons = [
     {
         id: 1,
         img: "/icons/wifi.svg",
+        darkimg: "/icons/dark-wifi.svg",
     },
     {
         id: 2,
         img: "/icons/search.svg",
+        darkimg: "/icons/dark-search.svg",
     },
     {
         id: 3,
         img: "/icons/user.svg",
+        darkimg: "/icons/dark-user.svg",
     },
     {
         id: 4,
         img: "/icons/mode.svg",
+        darkimg: "/icons/dark-mode.svg",
     },
 ];
 
@@ -411,7 +415,7 @@ const WORK_LOCATION = {
             "name": "Nagarik Post",
             "icon": "/images/folder.png",
             "kind": "folder",
-            "position": "top-20 left-96",
+            "position": "top-50 left-96",
             "windowPosition": "top-[48vh] right-12",
             "children": [
                 {

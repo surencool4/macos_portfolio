@@ -5,6 +5,7 @@ import {Download} from "lucide-react";
 import { Document, Page, pdfjs } from 'react-pdf';
 import 'react-pdf/dist/Page/AnnotationLayer.css';
 import 'react-pdf/dist/Page/TextLayer.css';
+import useThemeStore from "#store//theme.js";
 
 //Local Machine
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(
@@ -16,6 +17,13 @@ pdfjs.GlobalWorkerOptions.workerSrc = new URL(
 // pdfjs.GlobalWorkerOptions.workerSrc = 'https://unpkg.com/pdfjs-dist@{pdfjs.version}/build/pdf.worker.min.js';
 
 const Resume = () => {
+const theme = useThemeStore((s) => s.theme);
+const getCurrentMode = () => {
+        if (theme === "light" || theme === "dark") return theme;
+        return window.matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "light";
+    };
     return (
         <>
             <div id="window-header">
@@ -27,8 +35,7 @@ const Resume = () => {
                 </a>
 
             </div>
-
-            <Document file="files/resume.pdf">
+            <Document file="files/resume.pdf" className={getCurrentMode() === 'dark' ? "dark" : ""} >
                 <Page
                     pageNumber={1}
                     renderTextLayer
