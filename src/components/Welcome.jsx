@@ -1,6 +1,9 @@
 import {useRef} from "react";
 import gsap from "gsap";
 import {useGSAP} from "@gsap/react";
+import {dockApps} from "#constants/";
+import {Tooltip} from "react-tooltip";
+import useWindowStore from "#store//window.js";
 
 const FONT_WEIGHTS = {
     subtitle: {min:100, max:400, default:100},
@@ -54,6 +57,27 @@ const setupTextHover = (container, type) => {
 const Welcome = () => {
     const  titleRef = useRef(null);
     const subtitleRef = useRef(null);
+    const {openWindow, closeWindow, windows} = useWindowStore();
+
+    const dockRef = useRef(null);
+
+
+
+    const toggleApp = (app) => {
+        if(!app.canOpen) return;
+        const window = windows[app.id];
+        if(!window){
+            console.error(`Windows not found for app: ${app.id}`);
+            return;
+        }
+        if(window.isOpen){
+            closeWindow(app.id);
+        }else{
+            openWindow(app.id);
+        }
+        console.log(windows);
+    };
+
 
     useGSAP(() => {
         const titleCleanup = setupTextHover(titleRef.current, 'title');
@@ -80,7 +104,30 @@ const Welcome = () => {
             </h1>
 
             <div className='small-screen'>
-                <p>This portfolio is designed for desktop/tablet screens only.</p>
+                <div ref={dockRef} className="flex">
+                    {dockApps.slice(-3,-1).map(({id, name, icon, canOpen }) => (
+                        <div key={id} className="  ">
+                            <button
+                                type="button"
+                                className="small-dock-icon"
+                                aria-label={name}
+                                data-tooltip-id="dock-tooltip"
+                                data-tooltip-content={name}
+                                data-tooltip-delay-show={150}
+                                disabled={!canOpen}
+                                onClick={() => toggleApp({id, canOpen})}
+                            >
+                                <img
+                                    src={`/images/${icon}`}
+                                    alt={name}
+                                    loading="lazy"
+                                    className= {canOpen ? "" : "opacity-60"}
+                                />
+                            </button>
+                        </div>
+                    ))}
+                    <Tooltip id="dock-tooltip" place="top" className="tooltip" />
+                </div>
             </div>
         </section>
     )

@@ -88,16 +88,19 @@ body {
         @apply text-gray-200 flex flex-col justify-center items-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 select-none max-sm:h-screen max-sm:w-full max-sm:px-10;
 
         .small-screen {
-            @apply sm:hidden m-7 bg-red-300/20 backdrop-blur-lg p-3 rounded-md absolute top-10;
+            @apply sm:hidden m-7 backdrop-blur-lg p-3 rounded-md absolute top-10;
+            .small-dock-icon {
+                @apply size-20 cursor-pointer mx-4 ;
+            }
 
-            p {
+            p{
                 @apply flex-1 text-[16px] text-center font-roboto text-gray-400;
             }
         }
     }
 
     #dock {
-        @apply absolute bottom-5 left-1/2 -translate-x-1/2 z-50 select-none max-sm:hidden;
+        @apply absolute bottom-5 left-1/2 -translate-x-1/2 z-50 select-none;
 
         .dock-container {
             @apply bg-black/30 backdrop-blur-md justify-between rounded-2xl p-1.5 flex items-end gap-1.5;
@@ -108,7 +111,7 @@ body {
         }
 
         .dock-icon {
-            @apply size-14 3xl:size-20 cursor-pointer;
+            @apply size-18 md:size-14 3xl:size-20 cursor-pointer;
 
             img {
                 @apply object-cover object-center;
@@ -258,10 +261,10 @@ body {
     }
 
     #photos {
-        @apply max-w-3xl absolute top-96 left-1/2 -translate-y-1/2 bg-white dark:bg-gray-900 shadow-2xl drop-shadow-2xl rounded-xl overflow-hidden;
+        @apply  w-full md:max-w-3xl absolute top-96 left-1/2 -translate-y-1/2 bg-white dark:bg-gray-900 shadow-2xl drop-shadow-2xl rounded-xl overflow-hidden;
 
         .sidebar {
-            @apply w-3/12 flex-none bg-gray-50 dark:border-black border-r  dark:bg-gray-800 border-gray-200 flex flex-col p-5;
+            @apply hidden md:flex w-3/12 flex-none bg-gray-50 dark:border-black border-r  dark:bg-gray-800 border-gray-200 flex-col p-5;
 
             h2 {
                 @apply text-xs font-medium text-gray-400 dark:text-gray-800 mb-1;
@@ -328,10 +331,10 @@ body {
     }
 
     #finder {
-        @apply absolute w-3xl left-40 top-20 shadow-2xl drop-shadow-2xl dark:bg-black/80 overflow-hidden rounded-xl;
+        @apply absolute w-full  md:w-3xl md:left-40 md:top-20 shadow-2xl drop-shadow-2xl dark:bg-black/80 overflow-hidden md:rounded-xl;
 
         .sidebar {
-            @apply w-48 bg-gray-50 border-r border-gray-200 dark:border-black dark:bg-gray-800  flex flex-col p-5 space-y-3;
+            @apply  md:flex w-48 bg-gray-50 border-r border-gray-200 dark:border-black dark:bg-gray-800 flex-col p-5 space-y-3;
 
             h3 {
                 @apply text-xs font-medium text-gray-400 dark:text-white mb-1;
@@ -355,10 +358,9 @@ body {
         }
 
         .content {
-            @apply flex-1 p-8 bg-white dark:bg-gray-900 max-w-2xl relative;
-
+            @apply grid grid-cols-3 py-4 md:flex-1 p-2 md:p-8 bg-white dark:bg-gray-900 w-full md:max-w-2xl md:relative;
             li {
-                @apply absolute flex items-center flex-col gap-3;
+                @apply md:absolute p-5 flex items-center flex-col gap-3;
 
                 img {
                     @apply object-contain object-center size-16 relative group-hover:scale-105;
@@ -370,6 +372,51 @@ body {
             }
         }
     }
+
+
+    /*#finder {*/
+    /*    @apply absolute w-full md:w-3xl md:left-40 md:top-20 shadow-2xl drop-shadow-2xl dark:bg-black/80 overflow-hidden md:rounded-xl;*/
+
+    /*    .sidebar {*/
+    /*        @apply w-48 bg-gray-50 border-r border-gray-200 dark:border-black dark:bg-gray-800  flex flex-col p-5 space-y-3;*/
+
+    /*        h3 {*/
+    /*            @apply text-xs font-medium text-gray-400 dark:text-white mb-1;*/
+    /*        }*/
+
+    /*        ul {*/
+    /*            @apply space-y-1;*/
+
+    /*            .active {*/
+    /*                @apply bg-blue-100 dark:bg-gray-500 text-blue-700 dark:text-white;*/
+    /*            }*/
+
+    /*            .not-active {*/
+    /*                @apply text-gray-700 dark:text-white hover:bg-gray-200;*/
+    /*            }*/
+
+    /*            li {*/
+    /*                @apply flex items-center gap-2 px-3 py-2 rounded-md cursor-pointer transition-colors dark:text-white;*/
+    /*            }*/
+    /*        }*/
+    /*    }*/
+
+    /*    .content {*/
+    /*        @apply flex-1 p-8 bg-white dark:bg-gray-900 max-w-2xl md:relative;*/
+
+    /*        li {*/
+    /*            @apply absolute flex items-center flex-col gap-3;*/
+
+    /*            img {*/
+    /*                @apply object-contain object-center size-16 relative group-hover:scale-105;*/
+    /*            }*/
+
+    /*            p {*/
+    /*                @apply text-sm text-center font-medium w-40 dark:text-white;*/
+    /*            }*/
+    /*        }*/
+    /*    }*/
+    /*}*/
 
     #txtfile {
         @apply w-md absolute top-36 right-32 bg-white dark:bg-gray-900 shadow-2xl drop-shadow-2xl rounded-xl overflow-hidden;
@@ -415,7 +462,7 @@ body {
         }
     }
 
-    .dark .react-pdf__Page__canvas {
+        .dark .react-pdf__Page__canvas {
         filter: invert(0.9) hue-rotate(180deg) brightness(0.9) !important;
     }
 }

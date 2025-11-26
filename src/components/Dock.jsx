@@ -1,5 +1,5 @@
 import gsap from 'gsap';
-import {useRef} from "react";
+import {useEffect, useRef, useState} from "react";
 import {Tooltip} from "react-tooltip";
 import {dockApps} from "#constants/";
 import {useGSAP} from "@gsap/react";
@@ -8,6 +8,22 @@ import useWindowStore from "#store//window.js";
 const Dock = () => {
     const {openWindow, closeWindow, windows} = useWindowStore();
     const dockRef = useRef(null);
+
+    const [visibleApps, setVisibleApps] = useState(dockApps);
+
+    useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth < 640) { // small screens (< sm)
+                setVisibleApps(dockApps.slice(0, 4));
+            } else {
+                setVisibleApps(dockApps);
+            }
+        };
+
+        handleResize(); // run on mount
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
 
     useGSAP(() => {
         const dock = dockRef.current;
@@ -71,7 +87,7 @@ const Dock = () => {
     return (
         <section id="dock">
             <div ref={dockRef} className="dock-container">
-                {dockApps.map(({id, name, icon, canOpen }) => (
+                {visibleApps.map(({id, name, icon, canOpen }) => (
                     <div key={id} className="relative flex justify-center">
                         <button
                             type="button"
